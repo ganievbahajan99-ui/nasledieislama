@@ -1,0 +1,2381 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Медресе «Наследие Ислама» — Москва</title>
+  <meta name="description" content="Исламское образование для всех в Москве. Акыда, фикх, арабский язык, таджвид. м. Тульская. Начни в любое время года." />
+  <meta property="og:title" content="Медресе «Наследие Ислама» — Москва" />
+  <meta property="og:description" content="Исламское образование для всех — от детей до пожилых. Начать можно в любое время. м. Тульская." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="logo.png" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #1e3a8a;
+      --blue2:   #2d4eaa;
+      --sky:     #6b9ef8;
+      --sky2:    #93b8fb;
+      --gold:    #d4a017;
+      --gold2:   #f5c842;
+      --cream:   #fffdf5;
+      --dark:    #0d1b3e;
+      --text:    #1a2340;
+      --gray:    #64748b;
+      --light:   #f1f5ff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text);
+      background: #eef2ff;
+      overflow-x: hidden;
+    }
+
+    /* ═══════════════════════════════
+       ЖИВЫЕ ОРБ-ФОНЫ
+    ═══════════════════════════════ */
+    .bg-orbs {
+      position: fixed; inset: 0;
+      z-index: -1; overflow: hidden;
+      pointer-events: none;
+    }
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.22;
+      animation: drift 22s ease-in-out infinite;
+    }
+    .orb-1 { width: 700px; height: 700px; background: #6b9ef8; top: -200px; left: -200px; animation-duration: 24s; }
+    .orb-2 { width: 600px; height: 600px; background: #1e3a8a; top: 40vh; right: -150px; animation-duration: 30s; animation-delay: -10s; }
+    .orb-3 { width: 500px; height: 500px; background: #d4a017; bottom: 5vh; left: 15%; animation-duration: 26s; animation-delay: -17s; }
+    @keyframes drift {
+      0%,100% { transform: translate(0,0) scale(1); }
+      33%      { transform: translate(55px,-75px) scale(1.07); }
+      66%      { transform: translate(-40px,50px) scale(0.93); }
+    }
+
+    /* ═══════════════════════════════
+       NAVBAR
+    ═══════════════════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255,255,255,0.80);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 1px solid rgba(107,158,248,0.15);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+      transition: height 0.3s, background 0.3s, box-shadow 0.3s;
+    }
+    nav.scrolled {
+      height: 58px;
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 4px 32px rgba(30,58,138,0.12);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 46px; object-fit: contain; }
+    .nav-logo-text { font-size: 15px; font-weight: 800; color: var(--blue); line-height: 1.2; letter-spacing: -0.02em; }
+    .nav-logo-text small { display: block; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sky); }
+
+    .nav-links { display: flex; gap: 30px; list-style: none; }
+    .nav-links a {
+      color: var(--text); text-decoration: none;
+      font-size: 13px; font-weight: 600; letter-spacing: 0.02em;
+      position: relative; transition: color 0.2s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--sky));
+      border-radius: 2px; transform: scaleX(0); transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--blue), var(--sky)) !important;
+      color: #fff !important; padding: 9px 22px;
+      border-radius: 10px; font-weight: 700 !important;
+      box-shadow: 0 4px 16px rgba(30,58,138,0.30);
+      transition: transform 0.2s, box-shadow 0.2s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(30,58,138,0.40) !important; }
+
+    .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
+    .burger span { display: block; width: 24px; height: 2px; background: var(--blue); border-radius: 2px; transition: 0.3s; }
+
+    /* ═══════════════════════════════
+       HERO — ГЛАВНЫЙ УДАР
+    ═══════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      background:
+        radial-gradient(ellipse 100% 70% at 60% 20%, rgba(107,158,248,0.18) 0%, transparent 60%),
+        linear-gradient(160deg, #0d1b3e 0%, #1e3a8a 45%, #0f2060 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Геометрический фоновый узор */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(107,158,248,0.04) 60px, rgba(107,158,248,0.04) 61px),
+        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(107,158,248,0.04) 60px, rgba(107,158,248,0.04) 61px);
+      pointer-events: none;
+    }
+
+    /* Большой светящийся круг справа */
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(107,158,248,0.15) 0%, transparent 70%);
+      top: 50%; right: -200px;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .hero-body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 5% 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Логотип */
+    .hero-logo-wrap {
+      margin-bottom: 32px;
+    }
+    .hero-logo-wrap img { height: 96px; object-fit: contain; }
+
+    /* Цитата хадиса */
+    .hero-hadith {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(212,160,23,0.15);
+      border: 1px solid rgba(212,160,23,0.35);
+      border-radius: 100px;
+      padding: 8px 20px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold2);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .hero-hadith::before { content: '✦'; font-size: 10px; }
+    .hero-hadith::after  { content: '✦'; font-size: 10px; }
+
+    /* Главный заголовок */
+    .hero-headline {
+      font-size: clamp(38px, 7vw, 84px);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.035em;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .hero-headline .accent {
+      display: block;
+      background: linear-gradient(90deg, #93b8fb 0%, var(--gold2) 40%, #93b8fb 80%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+    }
+    @keyframes shimmer { to { background-position: 200% center; } }
+
+    /* Подзаголовок */
+    .hero-sub {
+      font-size: clamp(15px, 2vw, 19px);
+      font-weight: 400;
+      color: rgba(255,255,255,0.70);
+      max-width: 560px;
+      margin: 0 auto 40px;
+      line-height: 1.75;
+    }
+    .hero-sub strong { color: rgba(255,255,255,0.95); font-weight: 700; }
+
+    /* Бейджи */
+    .hero-pills {
+      display: flex; gap: 10px; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 44px;
+    }
+    .pill {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      color: rgba(255,255,255,0.88);
+      padding: 8px 18px; border-radius: 100px;
+      font-size: 13px; font-weight: 600;
+      backdrop-filter: blur(8px);
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      cursor: default;
+    }
+    .pill:hover {
+      background: rgba(255,255,255,0.14);
+      border-color: rgba(245,200,66,0.45);
+      transform: translateY(-2px);
+    }
+
+    /* CTA кнопки */
+    .hero-cta {
+      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+    }
+
+    /* ═══════════════════════════════
+       КНОПКИ — ГЛАВНЫЕ
+    ═══════════════════════════════ */
+    .btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700; font-size: 15px;
+      text-decoration: none; border-radius: 12px;
+      padding: 16px 32px;
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative; overflow: hidden;
+      white-space: nowrap;
+    }
+    .btn::before {
+      content: '';
+      position: absolute; top: 0; left: -100%; width: 55%; height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.28), transparent);
+      animation: btn-shine 3s ease-in-out infinite;
+    }
+    @keyframes btn-shine { 0%,100%{left:-100%} 50%{left:150%} }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #c89010, var(--gold2), #c89010);
+      background-size: 200% auto;
+      color: var(--dark);
+      box-shadow: 0 6px 28px rgba(212,160,23,0.50);
+      animation: gold-pulse 3s ease-in-out infinite;
+    }
+    @keyframes gold-pulse {
+      0%,100% { box-shadow: 0 6px 28px rgba(212,160,23,0.50); }
+      50%      { box-shadow: 0 8px 40px rgba(212,160,23,0.75), 0 0 0 6px rgba(212,160,23,0.10); }
+    }
+    .btn-gold:hover { transform: translateY(-3px) scale(1.02); }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.10);
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.30);
+      backdrop-filter: blur(10px);
+      box-shadow: none;
+    }
+    .btn-ghost::before { background: linear-gradient(120deg, transparent, rgba(255,255,255,0.15), transparent); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.18); border-color: var(--gold2); color: var(--gold2); transform: translateY(-3px); }
+
+    .btn-blue {
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      color: #fff;
+      box-shadow: 0 6px 24px rgba(30,58,138,0.40);
+    }
+    .btn-blue:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(30,58,138,0.55); }
+
+    .btn-sm { padding: 12px 24px; font-size: 14px; border-radius: 10px; }
+
+    /* ═══════════════════════════════
+       HERO STATS BAR
+    ═══════════════════════════════ */
+    .hero-stats-bar {
+      background: rgba(10,20,60,0.55);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex; justify-content: center;
+      position: relative; z-index: 1;
+    }
+    .stat-item {
+      padding: 22px 48px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      transition: background 0.2s;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item:hover { background: rgba(255,255,255,0.04); }
+    .stat-num {
+      font-size: 32px; font-weight: 900; line-height: 1;
+      letter-spacing: -0.03em;
+      background: linear-gradient(90deg, var(--sky2), var(--gold2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .stat-label { font-size: 11px; color: rgba(255,255,255,0.50); margin-top: 5px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* ═══════════════════════════════
+       ВОЛНОВЫЕ РАЗДЕЛИТЕЛИ
+    ═══════════════════════════════ */
+    .wave { line-height: 0; display: block; position: relative; z-index: 1; }
+    .wave svg { width: 100%; display: block; }
+
+    /* ═══════════════════════════════
+       СЕКЦИИ — ОБЩЕЕ
+    ═══════════════════════════════ */
+    section { padding: 88px 5%; position: relative; }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; margin-bottom: 12px;
+      color: var(--sky);
+    }
+    .section-h {
+      font-size: clamp(30px, 4.5vw, 50px);
+      font-weight: 900; letter-spacing: -0.03em; line-height: 1.1;
+      margin-bottom: 18px;
+      color: var(--dark);
+    }
+    .section-h em {
+      font-style: normal;
+      background: linear-gradient(90deg, var(--blue), var(--sky));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .section-p { font-size: 15px; color: var(--gray); line-height: 1.80; max-width: 600px; }
+
+    /* ═══════════════════════════════
+       СЕКЦИЯ — ПОЧЕМУ МЫ (WHY)
+    ═══════════════════════════════ */
+    #why { background: rgba(255,255,255,0.60); backdrop-filter: blur(12px); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .why-image {
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 32px 80px rgba(30,58,138,0.20);
+    }
+    .why-image img { width: 100%; height: 460px; object-fit: cover; display: block; transition: transform 0.55s ease; }
+    .why-image:hover img { transform: scale(1.05); }
+    .why-image-label {
+      position: absolute; bottom: 20px; left: 20px;
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      color: #fff; padding: 10px 20px; border-radius: 10px;
+      font-weight: 800; font-size: 13px;
+      box-shadow: 0 6px 20px rgba(30,58,138,0.45);
+      letter-spacing: -0.01em;
+    }
+
+    .why-features { display: flex; flex-direction: column; gap: 6px; margin-top: 36px; }
+    .why-feat {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 18px 16px; border-radius: 16px;
+      transition: background 0.25s, transform 0.25s;
+      cursor: default;
+    }
+    .why-feat:hover { background: rgba(30,58,138,0.05); transform: translateX(4px); }
+    .feat-icon {
+      width: 48px; height: 48px; min-width: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 16px rgba(30,58,138,0.28);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .why-feat:hover .feat-icon { transform: scale(1.12) rotate(-6deg); box-shadow: 0 8px 24px rgba(30,58,138,0.40); }
+    .feat-body strong { display: block; font-size: 14px; font-weight: 800; color: var(--dark); margin-bottom: 3px; letter-spacing: -0.01em; }
+    .feat-body p { font-size: 13px; color: var(--gray); line-height: 1.55; }
+
+    /* ═══════════════════════════════
+       СЕКЦИЯ — ПРЕДМЕТЫ
+    ═══════════════════════════════ */
+    #courses { background: rgba(255,255,255,0.35); }
+
+    .courses-head { text-align: center; max-width: 680px; margin: 0 auto 56px; }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .course-card {
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255,255,255,0.90);
+      border-radius: 22px;
+      padding: 30px 26px;
+      position: relative; overflow: hidden;
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s, border-color 0.3s;
+    }
+    /* Анимированная полоска */
+    .course-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--sky), var(--gold2), var(--sky), var(--blue));
+      background-size: 300% 100%;
+      animation: bar-move 5s linear infinite;
+    }
+    @keyframes bar-move { to { background-position: 300% 0; } }
+    .course-card::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% -10%, rgba(107,158,248,0.12) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.35s; pointer-events: none;
+    }
+    .course-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 28px 70px rgba(30,58,138,0.15); border-color: rgba(212,160,23,0.40); }
+    .course-card:hover::after { opacity: 1; }
+
+    .c-icon {
+      width: 54px; height: 54px; border-radius: 14px; margin-bottom: 18px;
+      background: linear-gradient(135deg, rgba(30,58,138,0.10), rgba(107,158,248,0.20));
+      border: 1px solid rgba(107,158,248,0.20);
+      display: flex; align-items: center; justify-content: center; font-size: 26px;
+      transition: transform 0.3s;
+    }
+    .course-card:hover .c-icon { transform: scale(1.12) rotate(6deg); }
+
+    .c-name { font-size: 17px; font-weight: 800; color: var(--dark); margin-bottom: 5px; letter-spacing: -0.01em; }
+    .c-sub {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, var(--blue), var(--sky));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .c-desc { font-size: 13px; color: var(--gray); line-height: 1.65; }
+
+    /* ═══════════════════════════════
+       СЕКЦИЯ — НОВИЧКАМ (BEGINNER)
+       Тёмная, выделяется
+    ═══════════════════════════════ */
+    #beginner {
+      background: linear-gradient(135deg, #0d1b3e 0%, #1e3a8a 55%, #0f2562 100%);
+      position: relative; overflow: hidden;
+    }
+    #beginner::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(107,158,248,0.04) 60px, rgba(107,158,248,0.04) 61px),
+        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(107,158,248,0.04) 60px, rgba(107,158,248,0.04) 61px);
+      pointer-events: none;
+    }
+
+    .beg-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center; position: relative;
+    }
+    .beg-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold2); margin-bottom: 12px; }
+    .beg-h {
+      font-size: clamp(26px, 3.8vw, 44px);
+      font-weight: 900; color: #fff; margin-bottom: 18px;
+      line-height: 1.15; letter-spacing: -0.025em;
+    }
+    .beg-p { color: rgba(255,255,255,0.72); font-size: 15px; line-height: 1.80; margin-bottom: 36px; }
+    .beg-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .beg-list li {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.88);
+    }
+    .beg-list li::before {
+      content: '✓';
+      width: 26px; height: 26px; min-width: 26px;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #0d1b3e; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 12px; line-height: 26px;
+      box-shadow: 0 3px 10px rgba(212,160,23,0.40);
+    }
+
+    .beg-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 26px; padding: 44px 40px;
+      backdrop-filter: blur(24px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 32px 80px rgba(0,0,0,0.20);
+    }
+    .beg-card-title {
+      font-size: 22px; font-weight: 900; color: var(--gold2);
+      margin-bottom: 24px; letter-spacing: -0.02em;
+    }
+
+    /* ═══════════════════════════════
+       СЕКЦИЯ — КАК НАЧАТЬ (3 ШАГА)
+    ═══════════════════════════════ */
+    #steps { background: rgba(255,255,255,0.55); backdrop-filter: blur(10px); }
+
+    .steps-head { text-align: center; max-width: 600px; margin: 0 auto 60px; }
+
+    .steps-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 28px; max-width: 960px; margin: 0 auto;
+      position: relative;
+    }
+    /* Соединительная линия */
+    .steps-row::before {
+      content: ''; position: absolute;
+      top: 36px; left: calc(16.67% + 14px); right: calc(16.67% + 14px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--sky), var(--blue));
+      background-size: 200% auto;
+      animation: line-anim 3s linear infinite;
+    }
+    @keyframes line-anim { to { background-position: 200% 0; } }
+
+    .step-card {
+      background: rgba(255,255,255,0.80);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.95);
+      border-radius: 22px; padding: 36px 28px;
+      text-align: center; position: relative;
+      box-shadow: 0 8px 32px rgba(30,58,138,0.08);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
+    }
+    .step-card:hover { transform: translateY(-6px); box-shadow: 0 20px 56px rgba(30,58,138,0.14); }
+
+    .step-num {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      color: #fff; font-size: 28px; font-weight: 900;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 22px; position: relative;
+      box-shadow: 0 6px 24px rgba(30,58,138,0.35);
+      letter-spacing: -0.02em;
+    }
+
+    .step-title { font-size: 17px; font-weight: 800; color: var(--dark); margin-bottom: 10px; letter-spacing: -0.01em; }
+    .step-text { font-size: 13px; color: var(--gray); line-height: 1.65; }
+
+    /* ═══════════════════════════════
+       СЕКЦИЯ — РАСПИСАНИЕ
+    ═══════════════════════════════ */
+    #schedule { background: rgba(255,255,255,0.40); }
+
+    .schedule-head { text-align: center; max-width: 600px; margin: 0 auto 52px; }
+
+    .schedule-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 22px; max-width: 860px; margin: 0 auto 36px;
+    }
+    .sc-card {
+      background: rgba(255,255,255,0.78);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.95);
+      border-radius: 22px; padding: 36px 24px;
+      text-align: center; position: relative; overflow: hidden;
+      box-shadow: 0 8px 32px rgba(30,58,138,0.08);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
+    }
+    .sc-card::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 16px; right: 16px; height: 4px; border-radius: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--sky), var(--gold2));
+    }
+    .sc-card:hover { transform: translateY(-7px) scale(1.02); box-shadow: 0 22px 60px rgba(30,58,138,0.14); }
+
+    .sc-day {
+      font-size: 11px; font-weight: 800; letter-spacing: 0.18em;
+      text-transform: uppercase; margin-bottom: 10px;
+      background: linear-gradient(90deg, var(--blue), var(--sky));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .sc-time {
+      font-size: 52px; font-weight: 900; letter-spacing: -0.04em; line-height: 1;
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 10px;
+    }
+    .sc-who { font-size: 13px; font-weight: 600; color: var(--gray); line-height: 1.50; }
+
+    .schedule-note {
+      max-width: 720px; margin: 0 auto;
+      background: rgba(255,255,255,0.80);
+      backdrop-filter: blur(12px);
+      border-radius: 16px; padding: 20px 28px;
+      font-size: 14px; color: var(--gray); line-height: 1.75;
+      border: 1px solid rgba(30,58,138,0.10);
+      box-shadow: 0 4px 20px rgba(30,58,138,0.06);
+    }
+
+    /* ═══════════════════════════════
+       СЕКЦИЯ — УЧИТЕЛЯ
+    ═══════════════════════════════ */
+    #teachers { background: rgba(255,255,255,0.58); backdrop-filter: blur(12px); }
+
+    .teachers-wrap {
+      max-width: 980px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center;
+    }
+    .teachers-card {
+      background: linear-gradient(135deg, rgba(30,58,138,0.06), rgba(107,158,248,0.12));
+      border: 1px solid rgba(107,158,248,0.22);
+      border-radius: 26px; padding: 40px;
+      text-align: center;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 16px 48px rgba(30,58,138,0.10);
+      position: relative;
+    }
+    .teachers-card::before {
+      display: none;
+    }
+    .t-name { font-size: 21px; font-weight: 900; letter-spacing: -0.02em; color: var(--dark); margin-bottom: 12px; }
+    .t-desc { font-size: 14px; color: var(--gray); line-height: 1.75; }
+    .t-location {
+      margin-top: 20px; font-weight: 800; font-size: 14px;
+      background: linear-gradient(90deg, var(--blue), var(--sky));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      letter-spacing: -0.01em;
+    }
+    .t-quote-mark {
+      font-size: 72px; line-height: 0.8;
+      font-family: Georgia, serif;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      display: block; margin-bottom: 16px;
+    }
+    .t-quote-text {
+      font-size: 16px; font-weight: 600; color: var(--dark);
+      line-height: 1.70; margin-bottom: 22px; letter-spacing: -0.01em;
+    }
+    .t-principles {
+      list-style: none; display: flex; flex-direction: column; gap: 10px;
+      margin-bottom: 28px;
+    }
+    .t-principles li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; font-weight: 700; color: var(--dark);
+    }
+    .t-principles li::before {
+      content: '◆';
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      font-size: 10px;
+    }
+    .t-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 600; color: var(--gray);
+      border-top: 1px solid rgba(107,158,248,0.15);
+      padding-top: 16px; width: 100%;
+      letter-spacing: 0.04em;
+    }
+
+    /* ═══════════════════════════════
+       СЕКЦИЯ — МЕДИА
+    ═══════════════════════════════ */
+    #media {
+      background: #060f28;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    #media::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 15% 50%, rgba(30,58,138,0.35) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 70% at 85% 50%, rgba(107,158,248,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .media-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; background: linear-gradient(90deg, var(--sky), var(--gold2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 12px; display: block; position: relative; }
+    .media-h { font-size: clamp(30px, 4vw, 48px); font-weight: 900; letter-spacing: -0.03em; color: #fff; margin-bottom: 16px; position: relative; }
+    .media-p { font-size: 15px; color: rgba(255,255,255,0.50); max-width: 460px; margin: 0 auto 44px; line-height: 1.75; position: relative; }
+
+    .media-nums {
+      display: flex; justify-content: center; gap: 56px;
+      flex-wrap: wrap; margin-bottom: 52px; position: relative;
+    }
+    .media-num { font-size: 50px; font-weight: 900; letter-spacing: -0.04em; line-height: 1; color: #ff3b3b; }
+    .media-num.tg { color: #2AABEE; }
+    .media-num-label { font-size: 11px; color: rgba(255,255,255,0.38); margin-top: 6px; letter-spacing: 0.10em; text-transform: uppercase; }
+
+    .media-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
+    .btn-yt {
+      background: linear-gradient(135deg, #b91c1c, #ef4444);
+      color: #fff; padding: 14px 28px; border-radius: 12px;
+      font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
+      box-shadow: 0 6px 28px rgba(239,68,68,0.40);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-yt:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(239,68,68,0.55); }
+    .btn-tg {
+      background: linear-gradient(135deg, #1281b5, #2AABEE);
+      color: #fff; padding: 14px 28px; border-radius: 12px;
+      font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
+      box-shadow: 0 6px 28px rgba(42,171,238,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-tg:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(42,171,238,0.50); }
+    .btn-admin {
+      background: linear-gradient(135deg, #1e3a8a, #3b63d4);
+      color: #fff; padding: 14px 28px; border-radius: 12px;
+      font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
+      box-shadow: 0 6px 28px rgba(30,58,138,0.40);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-admin:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(30,58,138,0.55); }
+
+    /* ═══ FAQ ═══ */
+    #faq { background: rgba(255,255,255,0.55); backdrop-filter: blur(10px); }
+    .faq-head { text-align: center; max-width: 600px; margin: 0 auto 56px; }
+
+    .faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+
+    .faq-item {
+      background: rgba(255,255,255,0.80);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.95);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(30,58,138,0.07);
+      transition: box-shadow 0.3s;
+    }
+    .faq-item:hover { box-shadow: 0 8px 32px rgba(30,58,138,0.12); }
+    .faq-item.open { border-color: rgba(107,158,248,0.35); }
+
+    .faq-q {
+      width: 100%; background: none; border: none; cursor: pointer;
+      padding: 22px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px; font-weight: 700; color: var(--dark);
+      text-align: left; letter-spacing: -0.01em;
+      transition: color 0.2s;
+    }
+    .faq-item.open .faq-q { color: var(--blue); }
+
+    .faq-icon {
+      width: 34px; height: 34px; min-width: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(30,58,138,0.08), rgba(107,158,248,0.16));
+      border: 1px solid rgba(107,158,248,0.20);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 700; color: var(--blue);
+      transition: background 0.3s, transform 0.35s;
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-icon {
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      color: #fff;
+      border-color: transparent;
+      transform: rotate(45deg);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1), padding 0.3s;
+      padding: 0 24px;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 24px 22px; }
+
+    .faq-a p {
+      font-size: 14px; color: var(--gray);
+      line-height: 1.80; border-top: 1px solid rgba(107,158,248,0.12);
+      padding-top: 16px;
+    }
+
+    /* ═══════════════════════════════
+       БОЛЬШОЙ CTA-БАННЕР
+    ═══════════════════════════════ */
+    #cta {
+      background: linear-gradient(135deg, #0d1b3e 0%, #1e3a8a 50%, #0f2060 100%);
+      text-align: center; overflow: hidden; position: relative;
+    }
+    #cta::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(107,158,248,0.05) 60px, rgba(107,158,248,0.05) 61px),
+        repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(107,158,248,0.05) 60px, rgba(107,158,248,0.05) 61px);
+      pointer-events: none;
+    }
+    .cta-glow {
+      position: absolute;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,160,23,0.15) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+      pointer-events: none;
+      animation: cta-pulse 4s ease-in-out infinite;
+    }
+    @keyframes cta-pulse {
+      0%,100% { transform: translate(-50%,-50%) scale(1); opacity: 0.8; }
+      50%      { transform: translate(-50%,-50%) scale(1.15); opacity: 1; }
+    }
+
+    .cta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+    .cta-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold2); margin-bottom: 16px; display: block; }
+    .cta-h {
+      font-size: clamp(32px, 5vw, 60px);
+      font-weight: 900; letter-spacing: -0.03em; line-height: 1.05;
+      color: #fff; margin-bottom: 18px;
+    }
+    .cta-h span {
+      background: linear-gradient(90deg, var(--sky2), var(--gold2), var(--sky2));
+      background-size: 200% auto;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      animation: shimmer 3.5s linear infinite;
+    }
+    .cta-p { font-size: 16px; color: rgba(255,255,255,0.68); line-height: 1.75; margin-bottom: 40px; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ═══════════════════════════════
+       КОНТАКТЫ
+    ═══════════════════════════════ */
+    #contact { background: rgba(255,255,255,0.55); backdrop-filter: blur(10px); }
+
+    .contact-wrap {
+      max-width: 1020px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    }
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 16px; border-radius: 16px; margin-bottom: 8px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .contact-item:hover { background: rgba(30,58,138,0.05); transform: translateX(4px); }
+    .c-icon-box {
+      width: 50px; height: 50px; min-width: 50px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(30,58,138,0.10), rgba(107,158,248,0.22));
+      border: 1px solid rgba(107,158,248,0.25);
+      display: flex; align-items: center; justify-content: center; font-size: 22px;
+      box-shadow: 0 2px 12px rgba(30,58,138,0.10);
+      transition: transform 0.25s;
+    }
+    .contact-item:hover .c-icon-box { transform: scale(1.10); }
+    .c-label { font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sky); margin-bottom: 4px; }
+    .c-val { font-size: 15px; font-weight: 700; color: var(--dark); }
+    .c-val a { color: inherit; text-decoration: none; }
+    .c-val a:hover { text-decoration: underline; }
+
+    /* ═══════════════════════════════
+       FOOTER
+    ═══════════════════════════════ */
+    footer {
+      background: linear-gradient(135deg, #0d1b3e, #1e3a8a);
+      color: rgba(255,255,255,0.55);
+      text-align: center; padding: 36px 5%;
+      font-size: 13px; font-weight: 500;
+    }
+    footer strong { color: var(--gold2); font-weight: 800; }
+    footer a { color: var(--sky2); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--gold2); }
+    .footer-links { margin-top: 12px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+
+    /* ═══════════════════════════════
+       АНИМАЦИИ СКРОЛЛА
+    ═══════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px) scale(0.97);
+      transition: opacity 0.70s cubic-bezier(0.22,1,0.36,1),
+                  transform 0.70s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal.in { opacity: 1; transform: translateY(0) scale(1); }
+    .d1 { transition-delay: 0.08s; }
+    .d2 { transition-delay: 0.16s; }
+    .d3 { transition-delay: 0.24s; }
+    .d4 { transition-delay: 0.32s; }
+    .d5 { transition-delay: 0.40s; }
+    .d6 { transition-delay: 0.48s; }
+    .d7 { transition-delay: 0.56s; }
+    .d8 { transition-delay: 0.64s; }
+
+    /* ═══════════════════════════════
+       ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ
+    ═══════════════════════════════ */
+    .a11y-toggle {
+      position: fixed; top: 108px; right: 0; z-index: 1101;
+      background: var(--blue);
+      color: #fff; border: none; cursor: pointer;
+      padding: 9px 11px 9px 13px;
+      border-radius: 10px 0 0 10px;
+      font-size: 11px; font-weight: 800;
+      writing-mode: vertical-rl; text-orientation: mixed;
+      letter-spacing: 0.07em;
+      box-shadow: -3px 3px 16px rgba(30,58,138,0.30);
+      transition: background 0.2s, transform 0.2s;
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.3;
+    }
+    .a11y-toggle:hover { background: var(--blue2); transform: translateX(-3px); }
+    .a11y-toggle.a11y-on { background: #333; }
+
+    /* Режим слабовидящих */
+    body.a11y-on {
+      background: #fff !important;
+      font-size: 20px !important;
+    }
+    body.a11y-on *:not(#scroll-bar):not(#grain) {
+      background: #fff !important;
+      color: #000 !important;
+      border-color: #000 !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+      animation: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      -webkit-text-fill-color: #000 !important;
+    }
+    body.a11y-on img { filter: grayscale(100%) contrast(1.2); }
+    body.a11y-on .bg-orbs,
+    body.a11y-on .islamic-floats,
+    body.a11y-on #grain { display: none; }
+    body.a11y-on a, body.a11y-on button { color: #00008b !important; -webkit-text-fill-color: #00008b !important; }
+    body.a11y-on .btn, body.a11y-on .nav-cta {
+      background: #000 !important;
+      color: #fff !important;
+      -webkit-text-fill-color: #fff !important;
+      border: 2px solid #000 !important;
+    }
+    body.a11y-on nav {
+      background: #fff !important;
+      border-bottom: 2px solid #000 !important;
+    }
+
+    /* ═══════════════════════════════
+       КАСТОМНЫЙ СКРОЛЛБАР
+    ═══════════════════════════════ */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #0d1b3e; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(var(--gold), var(--gold2)); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--gold2); }
+
+    /* ═══════════════════════════════
+       GRAIN ТЕКСТУРА
+    ═══════════════════════════════ */
+    #grain {
+      position: fixed; inset: 0; z-index: 1;
+      pointer-events: none;
+      opacity: 0.032;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    /* ═══════════════════════════════
+       DARK MODE
+    ═══════════════════════════════ */
+    body.dark { background: #060f28; }
+    body.dark #why,
+    body.dark #courses,
+    body.dark #steps,
+    body.dark #schedule,
+    body.dark #gallery,
+    body.dark #life,
+    body.dark #teachers,
+    body.dark #reviews,
+    body.dark #faq,
+    body.dark #contact { background: rgba(255,255,255,0.03); backdrop-filter: blur(12px); }
+    body.dark .section-h,
+    body.dark .step-title,
+    body.dark .c-name,
+    body.dark .t-name,
+    body.dark .faq-q { color: #e8edf8; }
+    body.dark .section-p,
+    body.dark .feat-body p,
+    body.dark .c-desc,
+    body.dark .step-text,
+    body.dark .t-desc,
+    body.dark .faq-a p,
+    body.dark .sc-who { color: rgba(200,215,255,0.70); }
+    body.dark .course-card,
+    body.dark .step-card,
+    body.dark .sc-card,
+    body.dark .faq-item,
+    body.dark .teachers-card { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.10); }
+    body.dark nav { background: rgba(6,15,40,0.90); border-color: rgba(107,158,248,0.12); }
+    body.dark .nav-logo-text { color: #93b8fb; }
+    body.dark .nav-links a { color: rgba(200,215,255,0.85); }
+    body.dark .schedule-note { background: rgba(255,255,255,0.05); color: rgba(200,215,255,0.70); }
+
+    .dark-btn {
+      background: none; border: none; cursor: pointer;
+      width: 38px; height: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px; color: var(--blue);
+      transition: background 0.2s, transform 0.2s;
+      flex-shrink: 0;
+    }
+    .dark-btn:hover { background: rgba(30,58,138,0.10); transform: scale(1.15); }
+    body.dark .dark-btn { color: var(--gold2); }
+
+    /* ═══════════════════════════════
+       CLIP-PATH АНИМАЦИЯ ЗАГОЛОВКОВ
+    ═══════════════════════════════ */
+    .clip-reveal {
+      clip-path: inset(0 0 100% 0);
+      transition: clip-path 0.75s cubic-bezier(0.22,1,0.36,1);
+    }
+    .clip-reveal.in { clip-path: inset(0 0 0% 0); }
+
+    /* ═══════════════════════════════
+       STAGGER СЛОВА HERO
+    ═══════════════════════════════ */
+    .word-wrap { display: inline-block; overflow: hidden; vertical-align: bottom; }
+    .word-inner {
+      display: inline-block;
+      transform: translateY(110%);
+      transition: transform 0.65s cubic-bezier(0.22,1,0.36,1);
+    }
+    .hero-headline.in .word-inner { transform: translateY(0); }
+
+    /* ═══════════════════════════════
+       ПРОГРЕСС СКРОЛЛА
+    ═══════════════════════════════ */
+    #scroll-bar {
+      position: fixed; top: 0; left: 0; height: 3px; z-index: 9999;
+      background: linear-gradient(90deg, var(--gold), var(--gold2), var(--sky));
+      width: 0%;
+      box-shadow: 0 0 10px rgba(212,160,23,0.70);
+      pointer-events: none;
+    }
+
+    /* ═══════════════════════════════
+       АКТИВНАЯ ССЫЛКА НАВИГАЦИИ
+    ═══════════════════════════════ */
+    .nav-links a.nav-active { color: var(--blue); }
+    .nav-links a.nav-active::after { transform: scaleX(1); }
+
+    /* ═══════════════════════════════
+       TYPEWRITER КУРСОР
+    ═══════════════════════════════ */
+    .tw-cursor {
+      display: inline-block; width: 2px; height: 1em;
+      background: rgba(255,255,255,0.80);
+      margin-left: 2px; vertical-align: middle;
+      animation: blink 0.75s step-end infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* ═══════════════════════════════
+       ПЛАВАЮЩИЙ WHATSAPP
+    ═══════════════════════════════ */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      width: 62px; height: 62px;
+      background: linear-gradient(135deg, #16a34a, #22c55e);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 28px rgba(34,197,94,0.50);
+      text-decoration: none;
+      transition: transform 0.25s, box-shadow 0.25s;
+      animation: wa-pulse 3s ease-in-out infinite;
+    }
+    .wa-float:hover { transform: scale(1.12); animation: none; box-shadow: 0 10px 40px rgba(34,197,94,0.70); }
+    .wa-float svg { width: 32px; height: 32px; fill: #fff; }
+    @keyframes wa-pulse {
+      0%,100% { box-shadow: 0 6px 28px rgba(34,197,94,0.50); }
+      50%      { box-shadow: 0 6px 40px rgba(34,197,94,0.80), 0 0 0 10px rgba(34,197,94,0.10); }
+    }
+
+    /* ═══════════════════════════════
+       КНОПКА НАВЕРХ
+    ═══════════════════════════════ */
+    .top-btn {
+      position: fixed; bottom: 28px; left: 28px; z-index: 999;
+      width: 50px; height: 50px;
+      background: linear-gradient(135deg, var(--blue), var(--sky));
+      border: none; border-radius: 50%; color: #fff;
+      font-size: 22px; font-weight: 700; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(30,58,138,0.40);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s, transform 0.25s;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .top-btn.show { opacity: 1; pointer-events: auto; }
+    .top-btn:hover { transform: translateY(-3px); }
+
+    /* ═══════════════════════════════
+       ПЛАВАЮЩИЕ ИСЛАМСКИЕ ЭЛЕМЕНТЫ
+    ═══════════════════════════════ */
+    .islamic-floats {
+      position: fixed; inset: 0;
+      z-index: 0; pointer-events: none;
+      overflow: hidden;
+    }
+    .ifl {
+      position: absolute;
+      opacity: 0;
+      animation: ifl-appear 1.2s ease forwards;
+      will-change: transform;
+      user-select: none;
+    }
+    @keyframes ifl-appear {
+      to { opacity: 1; }
+    }
+
+    /* Арабские буквы */
+    .ifl-letter {
+      font-family: 'Amiri', 'Arial', serif;
+      font-weight: 700;
+      background: linear-gradient(135deg, rgba(30,58,138,0.18), rgba(107,158,248,0.25));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: float-letter 8s ease-in-out infinite, ifl-appear 1.5s ease forwards;
+      line-height: 1;
+    }
+    @keyframes float-letter {
+      0%,100% { transform: translateY(0px) rotate(0deg); }
+      50%      { transform: translateY(-18px) rotate(4deg); }
+    }
+
+    /* Полумесяц */
+    .ifl-crescent {
+      animation: crescent-drift 10s ease-in-out infinite, ifl-appear 1.5s ease forwards;
+    }
+    @keyframes crescent-drift {
+      0%,100% { transform: translateY(0) rotate(-10deg) scale(1); }
+      33%      { transform: translateY(-25px) rotate(5deg) scale(1.06); }
+      66%      { transform: translateY(10px) rotate(-5deg) scale(0.96); }
+    }
+    .ifl-crescent svg { filter: drop-shadow(0 4px 16px rgba(107,158,248,0.35)); }
+
+    /* Звезда */
+    .ifl-star {
+      animation: star-spin 12s linear infinite, ifl-appear 1.5s ease forwards;
+    }
+    @keyframes star-spin {
+      0%   { transform: rotate(0deg) scale(1); }
+      50%  { transform: rotate(180deg) scale(1.1); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+
+    /* Чётки — цепочка точек */
+    .ifl-tasbih {
+      display: flex; flex-direction: column; align-items: center; gap: 5px;
+      animation: tasbih-sway 7s ease-in-out infinite, ifl-appear 1.5s ease forwards;
+    }
+    @keyframes tasbih-sway {
+      0%,100% { transform: rotate(-8deg) translateY(0); }
+      50%      { transform: rotate(8deg) translateY(-10px); }
+    }
+    .tasbih-bead {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: linear-gradient(135deg, rgba(107,158,248,0.45), rgba(30,58,138,0.30));
+      box-shadow: 0 2px 6px rgba(30,58,138,0.20);
+    }
+    .tasbih-bead.big {
+      width: 14px; height: 14px;
+      background: linear-gradient(135deg, rgba(212,160,23,0.50), rgba(245,200,66,0.35));
+    }
+    .tasbih-line {
+      width: 2px; height: 8px;
+      background: rgba(107,158,248,0.25);
+      border-radius: 2px;
+    }
+
+    /* ═══════════════════════════════
+       МОБИЛЬНЫЙ
+    ═══════════════════════════════ */
+    /* ═══════════════════════════════
+       СЕКЦИЯ — ЖИЗНЬ МЕДРЕСЕ (ВИДЕО)
+    ═══════════════════════════════ */
+    #life { background: rgba(255,255,255,0.55); backdrop-filter: blur(10px); }
+    .life-head { text-align: center; max-width: 600px; margin: 0 auto 52px; }
+    .life-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 22px; max-width: 1000px; margin: 0 auto;
+    }
+    .video-card {
+      border-radius: 18px; overflow: hidden;
+      box-shadow: 0 8px 32px rgba(30,58,138,0.12);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
+      background: #000;
+    }
+    .video-card:hover { transform: translateY(-6px); box-shadow: 0 20px 52px rgba(30,58,138,0.20); }
+    .video-card iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; }
+
+    /* ═══════════════════════════════
+       СЕКЦИЯ — ПОМЕЩЕНИЕ (ЛЕНТА)
+    ═══════════════════════════════ */
+    #gallery { background: rgba(255,255,255,0.55); backdrop-filter: blur(10px); overflow: hidden; }
+    .gallery-head { text-align: center; max-width: 600px; margin: 0 auto 48px; }
+
+    .marquee-wrap {
+      overflow: hidden;
+      -webkit-mask: linear-gradient(90deg, transparent 0%, black 7%, black 93%, transparent 100%);
+      mask: linear-gradient(90deg, transparent 0%, black 7%, black 93%, transparent 100%);
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .marquee-row {
+      display: flex; gap: 16px;
+      width: max-content;
+      animation: marquee-go 50s linear infinite;
+    }
+    .marquee-row.rev {
+      animation-direction: reverse;
+      animation-duration: 45s;
+    }
+    .marquee-wrap:hover .marquee-row { animation-play-state: paused; }
+    @keyframes marquee-go {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      flex-shrink: 0;
+      height: 210px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(30,58,138,0.14);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s;
+    }
+    .marquee-item:hover {
+      transform: scale(1.04) translateY(-4px);
+      box-shadow: 0 20px 52px rgba(30,58,138,0.22);
+    }
+    .marquee-item img {
+      height: 100%; width: auto;
+      display: block; object-fit: cover;
+    }
+
+    /* ═══════════════════════════════
+       СЕКЦИЯ — ОТЗЫВЫ (СЛАЙДЕР)
+    ═══════════════════════════════ */
+    #reviews { background: rgba(255,255,255,0.55); backdrop-filter: blur(10px); }
+    .reviews-head { text-align: center; max-width: 600px; margin: 0 auto 52px; }
+
+    .sl-outer {
+      position: relative;
+      max-width: 400px;
+      margin: 0 auto 32px;
+    }
+    .sl-viewport {
+      overflow: hidden;
+      border-radius: 28px;
+      background: linear-gradient(145deg, #0d1b3e, #1a2f6e);
+      box-shadow: 0 32px 80px rgba(30,58,138,0.30), 0 0 0 1px rgba(107,158,248,0.18);
+      position: relative;
+    }
+    .sl-viewport::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(107,158,248,0.12) 0%, transparent 70%);
+      pointer-events: none; z-index: 1;
+    }
+    .sl-track {
+      display: flex;
+      transition: transform 0.55s cubic-bezier(0.77,0,0.18,1);
+      will-change: transform;
+    }
+    .sl-slide {
+      flex-shrink: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 18px;
+      min-height: 360px;
+      position: relative; z-index: 2;
+    }
+    .sl-slide img {
+      max-width: 100%;
+      max-height: 540px;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.30);
+      display: block;
+    }
+
+    /* Стрелки */
+    .sl-btn {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      width: 46px; height: 46px;
+      background: rgba(255,255,255,0.96);
+      border: none; border-radius: 50%; cursor: pointer;
+      font-size: 22px; font-weight: 700; color: var(--blue);
+      box-shadow: 0 6px 24px rgba(30,58,138,0.22);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 10;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .sl-btn:hover { transform: translateY(-50%) scale(1.12); box-shadow: 0 10px 32px rgba(30,58,138,0.35); background: #fff; }
+    .sl-btn-prev { left: -23px; }
+    .sl-btn-next { right: -23px; }
+
+    /* Счётчик */
+    .sl-counter {
+      position: absolute; bottom: 14px; right: 18px; z-index: 5;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* Точки */
+    .sl-dots {
+      display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;
+    }
+    .sl-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(30,58,138,0.20);
+      border: none; cursor: pointer; padding: 0;
+      transition: background 0.3s, transform 0.3s, width 0.3s;
+    }
+    .sl-dot.active {
+      background: linear-gradient(90deg, var(--blue), var(--sky));
+      width: 24px; border-radius: 4px;
+      transform: none;
+    }
+
+    @media (max-width: 900px) {
+      .steps-row { grid-template-columns: 1fr; gap: 16px; }
+      .steps-row::before { display: none; }
+      .schedule-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 4%; }
+      .nav-links {
+        display: none; flex-direction: column;
+        position: absolute; top: 68px; left: 0; right: 0;
+        background: rgba(255,255,255,0.97);
+        backdrop-filter: blur(24px);
+        padding: 24px 5%; gap: 18px;
+        box-shadow: 0 12px 40px rgba(30,58,138,0.14);
+        border-bottom: 1px solid rgba(107,158,248,0.15);
+      }
+      .nav-links.open { display: flex; }
+      .burger { display: flex; }
+
+      .hero-stats-bar { flex-wrap: wrap; }
+      .stat-item { flex: 1 1 45%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+
+      .why-grid, .beg-inner, .teachers-wrap, .contact-wrap, .life-grid { grid-template-columns: 1fr; gap: 36px; }
+      .why-image img { height: 300px; }
+      section { padding: 64px 5%; }
+
+      .sc-time { font-size: 40px; }
+    }
+    @media (max-width: 480px) {
+      .hero-cta, .cta-btns { flex-direction: column; align-items: stretch; }
+      .btn { justify-content: center; }
+      .media-btns { flex-direction: column; align-items: center; }
+      .wa-float { bottom: 16px; right: 16px; }
+      .top-btn { bottom: 16px; left: 16px; }
+
+      /* Слайдер отзывов на мобильном */
+      .sl-outer { padding: 0 48px; max-width: 100%; }
+      .sl-btn-prev { left: 0; }
+      .sl-btn-next { right: 0; }
+
+      /* Галерея помещения на мобильном */
+      .marquee-item { height: 150px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="scroll-bar"></div>
+<div id="grain" aria-hidden="true"></div>
+
+<!-- Плавающие исламские элементы -->
+<div class="islamic-floats" aria-hidden="true" id="islamicFloats">
+
+  <!-- Арабские буквы -->
+  <div class="ifl ifl-letter" style="font-size:80px;top:12%;left:4%;animation-delay:0.2s;animation-duration:9s;">ب</div>
+  <div class="ifl ifl-letter" style="font-size:56px;top:55%;left:2%;animation-delay:1s;animation-duration:11s;">ن</div>
+  <div class="ifl ifl-letter" style="font-size:96px;top:28%;right:3%;animation-delay:0.5s;animation-duration:8s;">م</div>
+  <div class="ifl ifl-letter" style="font-size:64px;top:72%;right:5%;animation-delay:1.5s;animation-duration:10s;">ع</div>
+  <div class="ifl ifl-letter" style="font-size:48px;top:88%;left:6%;animation-delay:0.8s;animation-duration:13s;">ل</div>
+  <div class="ifl ifl-letter" style="font-size:70px;top:42%;right:2%;animation-delay:2s;animation-duration:9.5s;">ا</div>
+
+  <!-- Полумесяц -->
+  <div class="ifl ifl-crescent" style="top:8%;right:10%;animation-delay:0.3s;opacity:0;">
+    <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M45 10C32 10 22 21 22 35C22 49 32 60 45 60C38 58 33 50 33 35C33 20 38 12 45 10Z"
+        fill="url(#cg1)" opacity="0.75"/>
+      <defs>
+        <linearGradient id="cg1" x1="22" y1="10" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#93b8fb"/>
+          <stop offset="100%" stop-color="#1e3a8a"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <!-- Полумесяц со звездой слева -->
+  <div class="ifl ifl-crescent" style="top:60%;left:3%;animation-delay:1.2s;opacity:0;animation-duration:14s;">
+    <svg width="52" height="52" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M45 10C32 10 22 21 22 35C22 49 32 60 45 60C38 58 33 50 33 35C33 20 38 12 45 10Z"
+        fill="url(#cg2)" opacity="0.60"/>
+      <defs>
+        <linearGradient id="cg2" x1="22" y1="10" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#f5c842"/>
+          <stop offset="100%" stop-color="#c89010"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <!-- Звёзды -->
+  <div class="ifl ifl-star" style="top:20%;left:8%;animation-delay:0.6s;opacity:0;">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <polygon points="14,2 17.5,10.5 27,11.5 20.5,17.5 22.5,27 14,22 5.5,27 7.5,17.5 1,11.5 10.5,10.5"
+        fill="rgba(107,158,248,0.40)" stroke="rgba(107,158,248,0.60)" stroke-width="0.5"/>
+    </svg>
+  </div>
+  <div class="ifl ifl-star" style="top:45%;right:8%;animation-delay:1.8s;opacity:0;animation-duration:9s;">
+    <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
+      <polygon points="14,2 17.5,10.5 27,11.5 20.5,17.5 22.5,27 14,22 5.5,27 7.5,17.5 1,11.5 10.5,10.5"
+        fill="rgba(245,200,66,0.45)" stroke="rgba(245,200,66,0.65)" stroke-width="0.5"/>
+    </svg>
+  </div>
+  <div class="ifl ifl-star" style="top:80%;right:12%;animation-delay:2.5s;opacity:0;animation-duration:15s;">
+    <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+      <polygon points="14,2 17.5,10.5 27,11.5 20.5,17.5 22.5,27 14,22 5.5,27 7.5,17.5 1,11.5 10.5,10.5"
+        fill="rgba(107,158,248,0.35)"/>
+    </svg>
+  </div>
+
+  <!-- Чётки -->
+  <div class="ifl ifl-tasbih" style="top:30%;right:7%;animation-delay:0.9s;opacity:0;">
+    <div class="tasbih-bead big"></div>
+    <div class="tasbih-line"></div>
+    <div class="tasbih-bead"></div>
+    <div class="tasbih-line"></div>
+    <div class="tasbih-bead"></div>
+    <div class="tasbih-line"></div>
+    <div class="tasbih-bead big"></div>
+    <div class="tasbih-line"></div>
+    <div class="tasbih-bead"></div>
+    <div class="tasbih-line"></div>
+    <div class="tasbih-bead"></div>
+    <div class="tasbih-line"></div>
+    <div class="tasbih-bead big"></div>
+  </div>
+
+  <div class="ifl ifl-tasbih" style="top:65%;left:5%;animation-delay:1.4s;opacity:0;animation-duration:11s;">
+    <div class="tasbih-bead big"></div>
+    <div class="tasbih-line"></div>
+    <div class="tasbih-bead"></div>
+    <div class="tasbih-line"></div>
+    <div class="tasbih-bead"></div>
+    <div class="tasbih-line"></div>
+    <div class="tasbih-bead big"></div>
+    <div class="tasbih-line"></div>
+    <div class="tasbih-bead"></div>
+    <div class="tasbih-line"></div>
+    <div class="tasbih-bead big"></div>
+  </div>
+
+</div>
+
+<!-- Живые орбы-фон -->
+<div class="bg-orbs" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<!-- Плавающий WhatsApp -->
+<a href="https://wa.me/79933684317" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.738 5.49 2.027 7.8L0 32l8.418-2.003A15.93 15.93 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 01-6.773-1.853l-.486-.29-5.003 1.19 1.218-4.878-.318-.502A13.267 13.267 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.87c-.398-.199-2.354-1.162-2.72-1.294-.366-.133-.632-.199-.898.199-.266.398-1.031 1.294-1.264 1.56-.233.266-.465.299-.863.1-.398-.199-1.68-.619-3.2-1.974-1.183-1.054-1.981-2.356-2.214-2.754-.233-.398-.025-.613.175-.81.18-.178.398-.465.598-.698.199-.233.266-.398.398-.664.133-.266.066-.499-.033-.698-.1-.199-.898-2.165-1.23-2.963-.324-.779-.653-.673-.898-.686l-.765-.013c-.266 0-.698.1-1.064.499-.366.398-1.396 1.364-1.396 3.328s1.43 3.861 1.629 4.127c.199.266 2.814 4.296 6.82 6.026.953.412 1.697.658 2.277.842.957.305 1.828.262 2.516.159.767-.115 2.354-.962 2.687-1.891.333-.93.333-1.727.233-1.891-.1-.166-.366-.266-.765-.465z"/></svg>
+</a>
+
+<!-- Кнопка наверх -->
+<button class="top-btn" id="topBtn" aria-label="Наверх" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="logo.png" alt="Наследие Ислама" />
+    <div class="nav-logo-text">
+      Наследие Ислама
+      <small>Медресе · Москва</small>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#why">О нас</a></li>
+    <li><a href="#courses">Предметы</a></li>
+    <li><a href="#steps">Как начать</a></li>
+    <li><a href="#schedule">Расписание</a></li>
+    <li><a href="#media">Медиа</a></li>
+    <li><a href="#contact" class="nav-cta">Записаться</a></li>
+  </ul>
+  <button class="dark-btn" id="darkBtn" aria-label="Тёмная тема" onclick="toggleDark()">
+    <i class="fa-solid fa-moon" id="darkIcon"></i>
+  </button>
+  <div class="burger" id="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Кнопка версии для слабовидящих -->
+<button class="a11y-toggle" id="a11yToggle" onclick="toggleA11y()" aria-label="Версия для слабовидящих">
+  Версия для слабовидящих
+</button>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="home">
+  <div class="hero-body">
+    <div class="hero-inner">
+
+      <div class="hero-logo-wrap reveal">
+        <img src="logo.png" alt="Медресе Наследие Ислама" />
+      </div>
+
+      <div class="hero-hadith reveal d1">
+        «Ищите знания от колыбели до могилы»
+      </div>
+
+      <h1 class="hero-headline reveal d2">
+        Путь к знаниям<br>
+        <span class="accent">открыт для всех</span>
+      </h1>
+
+      <p class="hero-sub reveal d3" id="heroSub" data-text="Медресе в Москве для детей, взрослых и пожилых. 8 исламских дисциплин · Опытные устазы · Начни в любой день"></p>
+
+      <div class="hero-pills reveal d4">
+        <span class="pill"><i class="fa-solid fa-location-dot"></i> м. Тульская</span>
+        <span class="pill"><i class="fa-solid fa-users"></i> От 5 лет</span>
+        <span class="pill"><i class="fa-solid fa-calendar-check"></i> Набор всегда открыт</span>
+      </div>
+
+      <div class="hero-cta reveal d5">
+        <a href="#contact" class="btn btn-gold magnetic"><i class="fa-solid fa-pen-to-square"></i> Записаться на урок</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="hero-stats-bar">
+    <div class="stat-item">
+      <div class="stat-num" data-count="230" data-suffix="К+">0</div>
+      <div class="stat-label">подписчиков YouTube</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">7</div>
+      <div class="stat-label">Работаем каждый день</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">8</div>
+      <div class="stat-label">Исламских дисциплин</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Начать можно в любой день</div>
+    </div>
+  </div>
+</section>
+
+<!-- Волна -->
+<div class="wave" aria-hidden="true">
+  <svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:72px;">
+    <path d="M0,36 C360,72 1080,0 1440,36 L1440,72 L0,72 Z" fill="rgba(255,255,255,0.58)"/>
+  </svg>
+</div>
+
+<!-- ═══ ПОЧЕМУ МЫ ═══ -->
+<section id="why">
+  <div class="why-grid">
+    <div class="why-image reveal d1">
+      <img src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?w=800&q=80" alt="Куран" />
+      <div class="why-image-label">С любовью к знаниям</div>
+    </div>
+    <div class="reveal d2">
+      <p class="tag">О медресе</p>
+      <h2 class="section-h clip-reveal">Знания — <em>для каждого</em></h2>
+      <p class="section-p">Медресе «Наследие Ислама» — место, где двери открыты для всех. К нам приходят дети, студенты, взрослые и пожилые. Самому старшему студенту — 85 лет. Мы убеждены: путь к знаниям начинается в любом возрасте.</p>
+      <div class="why-features">
+        <div class="why-feat">
+          <div class="feat-icon"><i class="fa-solid fa-users" style="color:#fff;font-size:18px;"></i></div>
+          <div class="feat-body">
+            <strong>Для всех возрастов</strong>
+            <p>Дети, взрослые, пожилые — каждый найдёт своё место и темп обучения.</p>
+          </div>
+        </div>
+        <div class="why-feat">
+          <div class="feat-icon"><i class="fa-solid fa-people-arrows" style="color:#fff;font-size:18px;"></i></div>
+          <div class="feat-body">
+            <strong>Раздельное обучение</strong>
+            <p>Суббота — только для женщин, воскресенье — только для мужчин.</p>
+          </div>
+        </div>
+        <div class="why-feat">
+          <div class="feat-icon"><i class="fa-solid fa-user-group" style="color:#fff;font-size:18px;"></i></div>
+          <div class="feat-body">
+            <strong>Индивидуально и в группах</strong>
+            <p>Выберите формат, который подходит именно вам.</p>
+          </div>
+        </div>
+        <div class="why-feat">
+          <div class="feat-icon"><i class="fa-solid fa-calendar-check" style="color:#fff;font-size:18px;"></i></div>
+          <div class="feat-body">
+            <strong>Начать можно в любое время</strong>
+            <p>Приём ведётся круглый год — без вступительных экзаменов.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Волна -->
+<div class="wave" aria-hidden="true">
+  <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:60px;">
+    <path d="M0,30 C480,60 960,0 1440,30 L1440,60 L0,60 Z" fill="rgba(255,255,255,0.35)"/>
+  </svg>
+</div>
+
+<!-- ═══ ПРЕДМЕТЫ ═══ -->
+<section id="courses">
+  <div class="courses-head reveal">
+    <p class="tag">Программа</p>
+    <h2 class="section-h clip-reveal">Исламские <em>дисциплины</em></h2>
+    <p class="section-p" style="margin:0 auto;">Каждый урок до 1 часа. Выбирайте один предмет или несколько — всё на ваш выбор.</p>
+  </div>
+  <div class="courses-grid">
+    <div class="course-card reveal d1"><div class="c-icon"><span style="font-family:'Amiri',serif;color:var(--blue);font-size:30px;font-weight:700;line-height:1;">ع</span></div><div class="c-name">Акыда</div><div class="c-sub">Вероубеждение</div><p class="c-desc">Правильное понимание единобожия, атрибутов Аллаhа и столпов веры.</p></div>
+    <div class="course-card reveal d2"><div class="c-icon"><i class="fa-solid fa-scale-balanced" style="color:var(--blue);font-size:24px;"></i></div><div class="c-name">Фикх</div><div class="c-sub">Ханафитский и Шафиитский мазхабы</div><p class="c-desc">Правила поклонения, ритуальной чистоты, намаза, поста и деловых отношений.</p></div>
+    <div class="course-card reveal d3"><div class="c-icon"><span style="font-family:'Amiri',serif;color:var(--blue);font-size:30px;font-weight:700;line-height:1;">ض</span></div><div class="c-name">Арабский язык</div><div class="c-sub">Литературный (фусха)</div><p class="c-desc">Язык Курана с нуля: грамматика, лексика, синтаксис — понятным методом.</p></div>
+    <div class="course-card reveal d4"><div class="c-icon"><i class="fa-solid fa-book-open" style="color:var(--blue);font-size:24px;"></i></div><div class="c-name">Таджвид</div><div class="c-sub">Правила чтения Курана</div><p class="c-desc">От букв алфавита до полных правил красивого чтения Священного Курана.</p></div>
+    <div class="course-card reveal d5"><div class="c-icon"><i class="fa-solid fa-heart" style="color:var(--blue);font-size:24px;"></i></div><div class="c-name">Ахляк</div><div class="c-sub">Нравственность</div><p class="c-desc">Исламская этика: правила взаимоотношения с людьми.</p></div>
+    <div class="course-card reveal d6"><div class="c-icon"><i class="fa-solid fa-star-and-crescent" style="color:var(--blue);font-size:24px;"></i></div><div class="c-name">Сира</div><div class="c-sub">Биография Пророка ﷺ</div><p class="c-desc">Жизнь Пророка Мухаммада ﷺ — источник вдохновения и руководства.</p></div>
+    <div class="course-card reveal d7"><div class="c-icon"><i class="fa-solid fa-scroll" style="color:var(--blue);font-size:24px;"></i></div><div class="c-name">История пророков</div><div class="c-sub">Кысасуль анбия</div><p class="c-desc">История пророков от Адама (мир ему) — уроки и назидания для каждого.</p></div>
+    <div class="course-card reveal d8" style="border-color:rgba(212,160,23,0.35);"><div class="c-icon"><i class="fa-solid fa-handshake" style="color:var(--blue);font-size:24px;"></i></div><div class="c-name">Общие лекции</div><div class="c-sub">Для всех · Бесплатно</div><p class="c-desc">Открытые встречи по четвергам в 19:00 — для всех желающих.</p></div>
+  </div>
+</section>
+
+<!-- Волна перед тёмной -->
+<div class="wave" aria-hidden="true">
+  <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:70px;">
+    <path d="M0,0 C360,70 1080,0 1440,55 L1440,70 L0,70 Z" fill="#0d1b3e"/>
+  </svg>
+</div>
+
+<!-- ═══ НОВИЧКАМ ═══ -->
+<section id="beginner">
+  <div class="beg-inner">
+    <div class="reveal d1">
+      <p class="beg-tag">Специальный курс</p>
+      <h2 class="beg-h">Только приняли Ислам<br>или начинаете с нуля?</h2>
+      <p class="beg-p">Специальный базовый курс — для тех, кто делает первые шаги. Никаких требований к знаниям. Объясним всё с самого начала, на русском языке.</p>
+      <ul class="beg-list">
+        <li>Правила очищения и ритуальной чистоты</li>
+        <li>Намаз — от основ до самостоятельного совершения</li>
+        <li>Основы вероубеждения и акыды</li>
+        <li>Правила деловых отношений в Исламе</li>
+        <li>Никах и семейная жизнь по Шариату</li>
+        <li>Грехи органов тела и как их избегать</li>
+      </ul>
+    </div>
+    <div class="beg-card reveal d2">
+      <div class="beg-card-title"><i class="fa-solid fa-seedling" style="color:var(--gold2);margin-right:8px;"></i>Этот курс для вас, если:</div>
+      <ul class="beg-list">
+        <li>Вы недавно приняли Ислам</li>
+        <li>Хотите систематизировать базовые знания</li>
+        <li>Не знаете, с чего начать</li>
+        <li>Ищете понимающее окружение</li>
+        <li>Хотите научиться намазу правильно</li>
+      </ul>
+      <br />
+      <a href="#contact" class="btn btn-gold magnetic" style="width:100%;justify-content:center;">Записаться на курс →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Волна после тёмной -->
+<div class="wave" aria-hidden="true">
+  <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:70px;">
+    <path d="M0,70 C360,0 1080,70 1440,15 L1440,0 L0,0 Z" fill="#0d1b3e"/>
+  </svg>
+</div>
+
+<!-- ═══ КАК НАЧАТЬ (3 ШАГА) ═══ -->
+<section id="steps">
+  <div class="steps-head reveal">
+    <p class="tag">Это просто</p>
+    <h2 class="section-h clip-reveal">Начните за <em>3 шага</em></h2>
+    <p class="section-p" style="margin:0 auto;">Никаких сложностей — приходите и начинайте учиться уже в эту субботу или воскресенье.</p>
+  </div>
+  <div class="steps-row">
+    <div class="step-card reveal d1">
+      <div class="step-num">1</div>
+      <div class="step-title">Напишите нам</div>
+      <p class="step-text">Напишите в WhatsApp или Telegram. Расскажите о себе — мы подберём подходящий курс и день.</p>
+    </div>
+    <div class="step-card reveal d2">
+      <div class="step-num">2</div>
+      <div class="step-title">Приходите в удобный день</div>
+      <p class="step-text">Мы работаем каждый день — приходите в любой будний день с 10:30 до 19:00. В выходные — раздельные занятия для мужчин и женщин.</p>
+    </div>
+    <div class="step-card reveal d3">
+      <div class="step-num">3</div>
+      <div class="step-title">Начинайте учиться</div>
+      <p class="step-text">Без экзаменов, без ожидания. Приходите в любое время года — с любого уровня знаний.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ РАСПИСАНИЕ ═══ -->
+<section id="schedule">
+  <div class="schedule-head reveal">
+    <p class="tag">Расписание</p>
+    <h2 class="section-h clip-reveal">Когда проходят <em>открытые лекции?</em></h2>
+    <p class="section-p" style="margin:0 auto;">Приходите без записи — вход свободный для всех желающих.</p>
+  </div>
+  <div class="schedule-grid">
+    <div class="sc-card reveal d1">
+      <div class="sc-day">Четверг</div>
+      <div class="sc-time">19:00</div>
+      <div class="sc-who">Открытая лекция<br>для всех желающих</div>
+    </div>
+    <div class="sc-card reveal d2">
+      <div class="sc-day">Суббота</div>
+      <div class="sc-time">14:00</div>
+      <div class="sc-who">Занятия <strong>исключительно</strong><br>для женщин</div>
+    </div>
+    <div class="sc-card reveal d3">
+      <div class="sc-day">Воскресенье</div>
+      <div class="sc-time">14:00</div>
+      <div class="sc-who">Занятия <strong>исключительно</strong><br>для мужчин</div>
+    </div>
+  </div>
+  <div class="schedule-note reveal">
+    <strong>Приступить к обучению можно в любое время года</strong> — специальных сессий нет. Длительность одного занятия — до 1 часа. Вы можете посещать один предмет или несколько сразу.
+  </div>
+</section>
+
+<!-- Волна -->
+<div class="wave" aria-hidden="true">
+  <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:60px;">
+    <path d="M0,30 C480,0 960,60 1440,30 L1440,60 L0,60 Z" fill="rgba(255,255,255,0.55)"/>
+  </svg>
+</div>
+
+<!-- ═══ ГАЛЕРЕЯ ПОМЕЩЕНИЯ ═══ -->
+<section id="gallery">
+  <div class="gallery-head reveal">
+    <p class="tag">Наше пространство</p>
+    <h2 class="section-h clip-reveal">Место, где <em>приятно учиться</em></h2>
+    <p class="section-p" style="margin:0 auto;">Уютное медресе в центре Москвы — приходите и убедитесь сами.</p>
+  </div>
+
+  <div class="marquee-wrap reveal">
+    <!-- Ряд 1 — слева направо -->
+    <div class="marquee-row">
+      <div class="marquee-item"><img src="photos/2.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/3.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/4.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/5.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/6.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/7.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/8.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/9.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/XXXL.webp" alt="Помещение медресе"></div>
+      <!-- дублируем для бесшовного цикла -->
+      <div class="marquee-item"><img src="photos/2.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/3.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/4.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/5.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/6.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/7.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/8.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/9.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/XXXL.webp" alt="Помещение медресе"></div>
+    </div>
+
+    <!-- Ряд 2 — справа налево -->
+    <div class="marquee-row rev">
+      <div class="marquee-item"><img src="photos/10.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/11.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/12.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/13.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/14.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/15.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/16.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/17.webp" alt="Помещение медресе"></div>
+      <!-- дублируем для бесшовного цикла -->
+      <div class="marquee-item"><img src="photos/10.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/11.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/12.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/13.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/14.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/15.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/16.webp" alt="Помещение медресе"></div>
+      <div class="marquee-item"><img src="photos/17.webp" alt="Помещение медресе"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Волна -->
+<div class="wave" aria-hidden="true">
+  <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:60px;">
+    <path d="M0,30 C480,0 960,60 1440,30 L1440,60 L0,60 Z" fill="rgba(255,255,255,0.55)"/>
+  </svg>
+</div>
+
+<!-- ═══ ЖИЗНЬ МЕДРЕСЕ ═══ -->
+<section id="life">
+  <div class="life-head reveal">
+    <p class="tag">Видео</p>
+    <h2 class="section-h clip-reveal">Жизнь <em>медресе</em></h2>
+  </div>
+  <div class="life-grid">
+    <div class="video-card reveal d1">
+      <iframe src="https://www.youtube.com/embed/M-4dvhatD6w?rel=0&modestbranding=1" allowfullscreen loading="lazy" title="Урок медресе"></iframe>
+    </div>
+    <div class="video-card reveal d2">
+      <iframe src="https://www.youtube.com/embed/zyoDxuSK2wo?rel=0&modestbranding=1" allowfullscreen loading="lazy" title="Урок медресе"></iframe>
+    </div>
+    <div class="video-card reveal d3">
+      <iframe src="https://www.youtube.com/embed/1zxSg3iNOJ0?rel=0&modestbranding=1" allowfullscreen loading="lazy" title="Урок медресе"></iframe>
+    </div>
+    <div class="video-card reveal d4">
+      <iframe src="https://www.youtube.com/embed/i0q4N44t3fY?rel=0&modestbranding=1" allowfullscreen loading="lazy" title="Урок медресе"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Волна -->
+<div class="wave" aria-hidden="true">
+  <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="height:60px;">
+    <path d="M0,30 C480,60 960,0 1440,30 L1440,60 L0,60 Z" fill="rgba(255,255,255,0.55)"/>
+  </svg>
+</div>
+
+<!-- ═══ УЧИТЕЛЯ ═══ -->
+<section id="teachers">
+  <div class="teachers-wrap">
+    <div class="reveal d1">
+      <p class="tag">Наши учителя</p>
+      <h2 class="section-h clip-reveal">Знания из <em>надёжных рук</em></h2>
+      <div class="why-features" style="margin-top:24px;">
+        <div class="why-feat">
+          <div class="feat-icon"><i class="fa-solid fa-comments" style="color:#fff;font-size:18px;"></i></div>
+          <div class="feat-body">
+            <strong>Понятным языком</strong>
+            <p>Всё объясняем на русском — без сложной терминологии и барьеров для восприятия.</p>
+          </div>
+        </div>
+        <div class="why-feat">
+          <div class="feat-icon"><i class="fa-solid fa-hands-holding" style="color:#fff;font-size:18px;"></i></div>
+          <div class="feat-body">
+            <strong>С терпением и заботой</strong>
+            <p>Темп подстраивается под каждого — не торопим и не осуждаем.</p>
+          </div>
+        </div>
+        <div class="why-feat">
+          <div class="feat-icon"><i class="fa-solid fa-link" style="color:#fff;font-size:18px;"></i></div>
+          <div class="feat-body">
+            <strong>Знания с иснадом</strong>
+            <p>Цепочка передачи знаний от первоисточников — в соответствии с классическими мазхабами.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="teachers-card reveal d2">
+      <span class="t-quote-mark">"</span>
+      <p class="t-quote-text">Мы не просто учим — мы стараемся быть рядом на каждом шаге пути к знаниям.</p>
+      <ul class="t-principles">
+        <li>Без осуждения</li>
+        <li>Без спешки</li>
+        <li>Без барьеров</li>
+      </ul>
+      <span class="t-badge"><i class="fa-solid fa-graduation-cap" style="font-size:13px;color:var(--sky);"></i> Выпускники РИУ · г. Казань</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ МЕДИА ═══ -->
+<section id="media">
+  <span class="media-tag reveal">Онлайн-присутствие</span>
+  <h2 class="media-h reveal d1">Мы в интернете</h2>
+  <p class="media-p reveal d2">Следите за уроками и новостями — подписывайтесь на наши каналы.</p>
+  <div class="media-nums">
+    <div class="reveal d1">
+      <div class="media-num" data-count="230" data-suffix="К+">0</div>
+      <div class="media-num-label">подписчиков YouTube</div>
+    </div>
+    <div class="reveal d2">
+      <div class="media-num tg" data-count="15" data-suffix="К+" style="-webkit-text-fill-color:#2AABEE;">0</div>
+      <div class="media-num-label">подписчиков Telegram</div>
+    </div>
+  </div>
+  <div class="media-btns reveal d3">
+    <a href="https://www.youtube.com/@nasledieislama" target="_blank" rel="noopener noreferrer" class="btn-yt"><i class="fa-brands fa-youtube"></i> YouTube канал</a>
+    <a href="https://t.me/nasledieislama" target="_blank" rel="noopener noreferrer" class="btn-tg"><i class="fa-brands fa-telegram"></i> Telegram новости</a>
+  </div>
+</section>
+
+<!-- ═══ ОТЗЫВЫ ═══ -->
+<section id="reviews">
+  <div class="reviews-head reveal">
+    <p class="tag">Отзывы</p>
+    <h2 class="section-h clip-reveal">Что говорят <em>наши студенты</em></h2>
+    <p class="section-p" style="margin:0 auto;">Реальные отзывы — скриншоты из переписки. Листайте стрелками или точками.</p>
+  </div>
+
+  <div class="sl-outer reveal d1">
+    <button class="sl-btn sl-btn-prev" onclick="slMove(-1)" aria-label="Назад">&#8249;</button>
+    <div class="sl-viewport">
+      <div class="sl-track" id="slTrack">
+        <div class="sl-slide"><img src="review-01.png" alt="Отзыв 1" loading="lazy"></div>
+        <div class="sl-slide"><img src="review-02.png" alt="Отзыв 2" loading="lazy"></div>
+        <div class="sl-slide"><img src="review-03.png" alt="Отзыв 3" loading="lazy"></div>
+        <div class="sl-slide"><img src="review-04.png" alt="Отзыв 4" loading="lazy"></div>
+        <div class="sl-slide"><img src="review-05.png" alt="Отзыв 5" loading="lazy"></div>
+        <div class="sl-slide"><img src="review-06.png" alt="Отзыв 6" loading="lazy"></div>
+        <div class="sl-slide"><img src="review-07.png" alt="Отзыв 7" loading="lazy"></div>
+        <div class="sl-slide"><img src="review-08.png" alt="Отзыв 8" loading="lazy"></div>
+        <div class="sl-slide"><img src="review-09.png" alt="Отзыв 9" loading="lazy"></div>
+        <div class="sl-slide"><img src="review-10.png" alt="Отзыв 10" loading="lazy"></div>
+      </div>
+      <div class="sl-counter" id="slCounter">1 / 10</div>
+    </div>
+    <button class="sl-btn sl-btn-next" onclick="slMove(1)" aria-label="Вперёд">&#8250;</button>
+  </div>
+
+  <div class="sl-dots" id="slDots">
+    <button class="sl-dot active" onclick="slGoto(0)"></button>
+    <button class="sl-dot" onclick="slGoto(1)"></button>
+    <button class="sl-dot" onclick="slGoto(2)"></button>
+    <button class="sl-dot" onclick="slGoto(3)"></button>
+    <button class="sl-dot" onclick="slGoto(4)"></button>
+    <button class="sl-dot" onclick="slGoto(5)"></button>
+    <button class="sl-dot" onclick="slGoto(6)"></button>
+    <button class="sl-dot" onclick="slGoto(7)"></button>
+    <button class="sl-dot" onclick="slGoto(8)"></button>
+    <button class="sl-dot" onclick="slGoto(9)"></button>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section id="faq">
+  <div class="faq-head reveal">
+    <p class="tag">Частые вопросы</p>
+    <h2 class="section-h clip-reveal">Отвечаем на <em>ваши вопросы</em></h2>
+    <p class="section-p" style="margin:0 auto;">Собрали самые частые вопросы — если не нашли ответ, напишите нам в WhatsApp.</p>
+  </div>
+  <div class="faq-list">
+
+    <div class="faq-item reveal d1">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Нужны ли предварительные знания об Исламе для записи?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Нет, никаких знаний не требуется. Мы принимаем всех — от полных новичков до тех, кто хочет углубить уже имеющиеся знания. Специально для начинающих разработан базовый курс, который охватывает всё с самого нуля.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal d2">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Могу ли я прийти на один урок, не записываясь на весь курс?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Да, конечно. Вы можете посещать любое количество занятий — одно или несколько. Жёсткого расписания нет: начать и закончить можно в любое время, а количество посещаемых предметов вы выбираете сами.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal d3">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        На каком языке проходят занятия?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Все занятия ведутся на русском языке — это делает обучение доступным для всех русскоговорящих мусульман вне зависимости от происхождения. Арабский язык изучается как отдельный предмет, начиная с нуля.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal d4">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Я немолод(а) — смогу ли я учиться?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Конечно! Возраст — не преграда для знаний. Самому старшему нашему студенту 85 лет. Темп обучения подстраивается под каждого, а атмосфера в классе — тёплая и поддерживающая.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal d5">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Может ли прийти любой желающий?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Да, приходить может абсолютно любой желающий — вне зависимости от вероисповедания, происхождения или уровня знаний.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal d6">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Можно ли прийти непокрытой?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>У нас нет строгого дресс-кода. Однако мы рекомендуем приходить в платке и одежде, закрывающей тело.</p>
+      </div>
+    </div>
+
+    <div class="faq-item reveal d7">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Как проходит первое занятие — что нужно взять с собой?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>Ничего особенного не нужно — просто приходите. Мы встретим вас, расскажем о программе и поможем выбрать подходящие уроки. По желанию можно взять блокнот и ручку.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ БОЛЬШОЙ CTA-БАННЕР ═══ -->
+<section id="cta">
+  <div class="cta-glow" aria-hidden="true"></div>
+  <div class="cta-inner">
+    <span class="cta-tag reveal">Начните сегодня</span>
+    <h2 class="cta-h reveal d1">
+      Сделайте первый шаг<br>к <span>знаниям прямо сейчас</span>
+    </h2>
+    <p class="cta-p reveal d2">
+      Напишите нам — и уже в ближайшие выходные вы будете на уроке. Без ожиданий, без экзаменов, с любого уровня.
+    </p>
+    <div class="cta-btns reveal d3">
+      <a href="https://wa.me/79933684317" target="_blank" rel="noopener noreferrer" class="btn btn-gold"><i class="fa-brands fa-whatsapp"></i> Записаться</a>
+      <a href="https://t.me/nasledieadmin" target="_blank" rel="noopener noreferrer" class="btn btn-ghost"><i class="fa-brands fa-telegram"></i> Telegram</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ КОНТАКТЫ ═══ -->
+<section id="contact">
+  <div style="text-align:center;max-width:580px;margin:0 auto 52px;" class="reveal">
+    <p class="tag">Контакты</p>
+    <h2 class="section-h clip-reveal">Как <em>нас найти</em></h2>
+    <p class="section-p" style="margin:0 auto;">Приходите к нам или свяжитесь любым удобным способом.</p>
+  </div>
+  <div class="contact-wrap">
+    <div class="reveal d1">
+      <div class="contact-item">
+        <div class="c-icon-box"><i class="fa-solid fa-location-dot" style="color:var(--blue);font-size:20px;"></i></div>
+        <div>
+          <div class="c-label">Адрес</div>
+          <div class="c-val">г. Москва, ул. Дубининская, д. 71, стр. 9<br><small style="font-weight:500;color:var(--gray);">м. Тульская</small></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon-box"><i class="fa-solid fa-clock" style="color:var(--blue);font-size:20px;"></i></div>
+        <div>
+          <div class="c-label">Режим работы</div>
+          <div class="c-val" style="font-size:13px;font-weight:600;line-height:2;">
+            <span style="display:grid;grid-template-columns:1fr 1fr;gap:0 16px;max-width:300px;">
+              <span style="color:var(--gray);font-weight:500;">Пн — Чт</span><span>10:30 — 19:00</span>
+              <span style="color:var(--gray);font-weight:500;">Пятница</span><span>13:30 — 19:00</span>
+              <span style="color:var(--gray);font-weight:500;">Сб — Вс</span><span>10:00 — 18:00</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon-box"><i class="fa-solid fa-phone" style="color:var(--blue);font-size:20px;"></i></div>
+        <div>
+          <div class="c-label">Телефон и WhatsApp</div>
+          <div class="c-val"><a href="tel:+79933684317">+7 993 368-43-17</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon-box"><i class="fa-brands fa-telegram" style="color:var(--blue);font-size:20px;"></i></div>
+        <div>
+          <div class="c-label">Telegram — администратор</div>
+          <div class="c-val"><a href="https://t.me/nasledieadmin" target="_blank" rel="noopener noreferrer">@nasledieadmin</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="c-icon-box"><i class="fa-brands fa-telegram" style="color:var(--blue);font-size:20px;"></i></div>
+        <div>
+          <div class="c-label">Telegram — новости</div>
+          <div class="c-val"><a href="https://t.me/nasledieislama" target="_blank" rel="noopener noreferrer">@nasledieislama</a></div>
+        </div>
+      </div>
+      <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="https://wa.me/79933684317" target="_blank" rel="noopener noreferrer" class="btn btn-blue btn-sm"><i class="fa-brands fa-whatsapp"></i> Записаться</a>
+        <a href="https://t.me/nasledieadmin" target="_blank" rel="noopener noreferrer" class="btn btn-sm" style="background:rgba(30,58,138,0.08);color:var(--blue);border:2px solid rgba(30,58,138,0.20);"><i class="fa-brands fa-telegram"></i> Telegram</a>
+      </div>
+    </div>
+    <div class="reveal d2" style="border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(30,58,138,0.14);">
+      <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A537a3071e84b710828dc4449f5a151c5894d8c5f5331cd4ba4799c7fad57fc8b&amp;width=560&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <p>© 2026 Медресе <strong>«Наследие Ислама»</strong> · Москва, ул. Дубининская, 71, стр. 9 · м. Тульская</p>
+  <div class="footer-links">
+    <a href="https://wa.me/79933684317" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a href="https://t.me/nasledieislama" target="_blank" rel="noopener noreferrer">Telegram</a>
+    <a href="https://www.youtube.com/@nasledieislama" target="_blank" rel="noopener noreferrer">YouTube</a>
+  </div>
+</footer>
+
+<script>
+  /* Параллакс исламских элементов при скролле */
+  const floats = document.querySelectorAll('.ifl');
+  const speeds = [0.08, 0.05, 0.12, 0.07, 0.10, 0.06, 0.09, 0.04, 0.11, 0.07, 0.13, 0.06, 0.08, 0.10];
+  const dirs   = [1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1];
+
+  window.addEventListener('scroll', () => {
+    const sy = window.scrollY;
+    floats.forEach((el, i) => {
+      const speed = speeds[i % speeds.length];
+      const dir   = dirs[i % dirs.length];
+      const scale = 1 + sy * 0.00008;
+      el.style.transform = `translateY(${sy * speed * dir}px) scale(${Math.min(scale, 1.15)})`;
+    });
+  }, { passive: true });
+
+  /* Меню */
+  function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
+
+  /* Navbar + кнопка наверх */
+  const nav = document.getElementById('navbar');
+  const topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+    topBtn.classList.toggle('show', window.scrollY > 500);
+  });
+
+  /* Анимации при скролле */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.10 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* FAQ аккордеон */
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  /* ═══ СЛАЙДЕР ОТЗЫВОВ ═══ */
+  (function() {
+    const track   = document.getElementById('slTrack');
+    const counter = document.getElementById('slCounter');
+    const dots    = document.querySelectorAll('.sl-dot');
+    const total   = document.querySelectorAll('.sl-slide').length;
+    let cur = 0, timer;
+
+    function update() {
+      track.style.transform = `translateX(-${cur * 100}%)`;
+      counter.textContent   = `${cur + 1} / ${total}`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+    }
+
+    window.slGoto = function(n) {
+      cur = (n + total) % total;
+      update(); resetTimer();
+    };
+    window.slMove = function(dir) { slGoto(cur + dir); };
+
+    function resetTimer() {
+      clearInterval(timer);
+      timer = setInterval(() => slGoto(cur + 1), 4500);
+    }
+
+    /* Свайп на мобильном */
+    let tx = 0;
+    const vp = track.parentElement;
+    vp.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+    vp.addEventListener('touchend',   e => {
+      const diff = tx - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) slGoto(cur + (diff > 0 ? 1 : -1));
+    });
+
+    resetTimer();
+  })();
+
+  /* ═══ ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ ═══ */
+  function toggleA11y() {
+    const on = document.body.classList.toggle('a11y-on');
+    document.getElementById('a11yToggle').classList.toggle('a11y-on', on);
+    localStorage.setItem('a11y', on ? '1' : '');
+  }
+  if (localStorage.getItem('a11y') === '1') {
+    document.body.classList.add('a11y-on');
+    document.getElementById('a11yToggle').classList.add('a11y-on');
+  }
+
+  /* ═══ DARK MODE ═══ */
+  function toggleDark() {
+    const isDark = document.body.classList.toggle('dark');
+    document.getElementById('darkIcon').className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark');
+    document.getElementById('darkIcon').className = 'fa-solid fa-sun';
+  }
+
+  /* ═══ STAGGER СЛОВА HERO ═══ */
+  (function() {
+    const h = document.querySelector('.hero-headline');
+    if (!h) return;
+    // Оборачиваем только текстовые узлы, не трогая дочерние теги
+    Array.from(h.childNodes).forEach((node, ni) => {
+      if (node.nodeType !== Node.TEXT_NODE) return;
+      const words = node.textContent.trim().split(/\s+/).filter(Boolean);
+      if (!words.length) return;
+      const frag = document.createDocumentFragment();
+      words.forEach((w, wi) => {
+        const wrap = document.createElement('span');
+        wrap.className = 'word-wrap';
+        const inner = document.createElement('span');
+        inner.className = 'word-inner';
+        inner.style.transitionDelay = ((ni + wi) * 0.08) + 's';
+        inner.textContent = w;
+        wrap.appendChild(inner);
+        frag.appendChild(wrap);
+        frag.appendChild(document.createTextNode(' '));
+      });
+      node.replaceWith(frag);
+    });
+    // Задержка для span.accent
+    const accent = h.querySelector('.accent');
+    if (accent) {
+      const wrap = document.createElement('span');
+      wrap.className = 'word-wrap';
+      wrap.style.display = 'block';
+      accent.replaceWith(wrap);
+      accent.classList.add('word-inner');
+      accent.style.transitionDelay = '0.24s';
+      wrap.appendChild(accent);
+    }
+  })();
+
+  /* ═══ CLIP-PATH ДЛЯ ЗАГОЛОВКОВ — подключаем к существующему observer ═══ */
+  document.querySelectorAll('.clip-reveal').forEach(el => io.observe(el));
+
+  /* ═══ ПРОГРЕСС-БАР СКРОЛЛА ═══ */
+  const scrollBar = document.getElementById('scroll-bar');
+  function updateScrollBar() {
+    const scrolled = window.scrollY;
+    const total    = document.documentElement.scrollHeight - window.innerHeight;
+    scrollBar.style.width = (scrolled / total * 100) + '%';
+  }
+  window.addEventListener('scroll', updateScrollBar, { passive: true });
+
+  /* ═══ TYPEWRITER НА HERO ═══ */
+  (function() {
+    const el = document.getElementById('heroSub');
+    if (!el) return;
+    const text   = el.dataset.text;
+    const cursor = document.createElement('span');
+    cursor.className = 'tw-cursor';
+    let i = 0;
+    el.textContent = '';
+    el.appendChild(cursor);
+    const timer = setInterval(() => {
+      if (i < text.length) {
+        el.insertBefore(document.createTextNode(text[i]), cursor);
+        i++;
+      } else {
+        clearInterval(timer);
+        setTimeout(() => cursor.remove(), 1800);
+      }
+    }, 32);
+  })();
+
+  /* ═══ АКТИВНАЯ ССЫЛКА НАВИГАЦИИ ═══ */
+  (function() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('nav-active'));
+          const active = document.querySelector('.nav-links a[href="#' + e.target.id + '"]');
+          if (active) active.classList.add('nav-active');
+        }
+      });
+    }, { threshold: 0.35 });
+    sections.forEach(s => spy.observe(s));
+  })();
+
+  /* ═══ 3D ТИЛТ НА КАРТОЧКАХ КУРСОВ ═══ */
+  document.querySelectorAll('.course-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r  = card.getBoundingClientRect();
+      const x  = e.clientX - r.left - r.width  / 2;
+      const y  = e.clientY - r.top  - r.height / 2;
+      const rx = -(y / r.height * 14).toFixed(2);
+      const ry =  (x / r.width  * 14).toFixed(2);
+      card.style.transform = `perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-8px) scale(1.02)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  /* ═══ МАГНИТНЫЕ КНОПКИ ═══ */
+  document.querySelectorAll('.magnetic').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const r  = btn.getBoundingClientRect();
+      const x  = (e.clientX - r.left - r.width  / 2) * 0.28;
+      const y  = (e.clientY - r.top  - r.height / 2) * 0.28;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
+
+  /* Счётчик для 200К */
+  function animateCount(el, target, suffix) {
+    let start = 0;
+    const step = Math.ceil(target / 60);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) { start = target; clearInterval(timer); }
+      el.textContent = start + (suffix || '');
+    }, 25);
+  }
+  const countEls = document.querySelectorAll('[data-count]');
+  const countObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCount(e.target, parseInt(e.target.dataset.count), e.target.dataset.suffix || 'К+');
+        countObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  countEls.forEach(el => countObserver.observe(el));
+
+</script>
+
+</body>
+</html>

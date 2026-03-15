@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Amiri&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -929,7 +929,7 @@
       background: #fff !important;
       font-size: 20px !important;
     }
-    body.a11y-on *:not(#scroll-bar):not(#grain) {
+    body.a11y-on *:not(#scroll-bar) {
       background: #fff !important;
       color: #000 !important;
       border-color: #000 !important;
@@ -942,8 +942,7 @@
     }
     body.a11y-on img { filter: grayscale(100%) contrast(1.2); }
     body.a11y-on .bg-orbs,
-    body.a11y-on .islamic-floats,
-    body.a11y-on #grain { display: none; }
+    body.a11y-on .islamic-floats { display: none; }
     body.a11y-on a, body.a11y-on button { color: #00008b !important; -webkit-text-fill-color: #00008b !important; }
     body.a11y-on .btn, body.a11y-on .nav-cta {
       background: #000 !important;
@@ -964,16 +963,6 @@
     ::-webkit-scrollbar-thumb { background: linear-gradient(var(--gold), var(--gold2)); border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--gold2); }
 
-    /* ═══════════════════════════════
-       GRAIN ТЕКСТУРА
-    ═══════════════════════════════ */
-    #grain {
-      position: fixed; inset: 0; z-index: 1;
-      pointer-events: none;
-      opacity: 0.032;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      background-size: 200px 200px;
-    }
 
     /* ═══════════════════════════════
        DARK MODE
@@ -1059,16 +1048,6 @@
     .nav-links a.nav-active { color: var(--blue); }
     .nav-links a.nav-active::after { transform: scaleX(1); }
 
-    /* ═══════════════════════════════
-       TYPEWRITER КУРСОР
-    ═══════════════════════════════ */
-    .tw-cursor {
-      display: inline-block; width: 2px; height: 1em;
-      background: rgba(255,255,255,0.80);
-      margin-left: 2px; vertical-align: middle;
-      animation: blink 0.75s step-end infinite;
-    }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
     /* ═══════════════════════════════
        ПЛАВАЮЩИЙ WHATSAPP
@@ -1154,39 +1133,6 @@
     }
     .ifl-crescent svg { filter: drop-shadow(0 4px 16px rgba(107,158,248,0.35)); }
 
-    /* Звезда */
-    .ifl-star {
-      animation: star-spin 12s linear infinite, ifl-appear 1.5s ease forwards;
-    }
-    @keyframes star-spin {
-      0%   { transform: rotate(0deg) scale(1); }
-      50%  { transform: rotate(180deg) scale(1.1); }
-      100% { transform: rotate(360deg) scale(1); }
-    }
-
-    /* Чётки — цепочка точек */
-    .ifl-tasbih {
-      display: flex; flex-direction: column; align-items: center; gap: 5px;
-      animation: tasbih-sway 7s ease-in-out infinite, ifl-appear 1.5s ease forwards;
-    }
-    @keyframes tasbih-sway {
-      0%,100% { transform: rotate(-8deg) translateY(0); }
-      50%      { transform: rotate(8deg) translateY(-10px); }
-    }
-    .tasbih-bead {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: linear-gradient(135deg, rgba(107,158,248,0.45), rgba(30,58,138,0.30));
-      box-shadow: 0 2px 6px rgba(30,58,138,0.20);
-    }
-    .tasbih-bead.big {
-      width: 14px; height: 14px;
-      background: linear-gradient(135deg, rgba(212,160,23,0.50), rgba(245,200,66,0.35));
-    }
-    .tasbih-line {
-      width: 2px; height: 8px;
-      background: rgba(107,158,248,0.25);
-      border-radius: 2px;
-    }
 
     /* ═══════════════════════════════
        МОБИЛЬНЫЙ
@@ -1389,7 +1335,6 @@
 <body>
 
 <div id="scroll-bar"></div>
-<div id="grain" aria-hidden="true"></div>
 
 <!-- Плавающие исламские элементы -->
 <div class="islamic-floats" aria-hidden="true" id="islamicFloats">
@@ -1430,56 +1375,6 @@
     </svg>
   </div>
 
-  <!-- Звёзды -->
-  <div class="ifl ifl-star" style="top:20%;left:8%;animation-delay:0.6s;opacity:0;">
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <polygon points="14,2 17.5,10.5 27,11.5 20.5,17.5 22.5,27 14,22 5.5,27 7.5,17.5 1,11.5 10.5,10.5"
-        fill="rgba(107,158,248,0.40)" stroke="rgba(107,158,248,0.60)" stroke-width="0.5"/>
-    </svg>
-  </div>
-  <div class="ifl ifl-star" style="top:45%;right:8%;animation-delay:1.8s;opacity:0;animation-duration:9s;">
-    <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
-      <polygon points="14,2 17.5,10.5 27,11.5 20.5,17.5 22.5,27 14,22 5.5,27 7.5,17.5 1,11.5 10.5,10.5"
-        fill="rgba(245,200,66,0.45)" stroke="rgba(245,200,66,0.65)" stroke-width="0.5"/>
-    </svg>
-  </div>
-  <div class="ifl ifl-star" style="top:80%;right:12%;animation-delay:2.5s;opacity:0;animation-duration:15s;">
-    <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
-      <polygon points="14,2 17.5,10.5 27,11.5 20.5,17.5 22.5,27 14,22 5.5,27 7.5,17.5 1,11.5 10.5,10.5"
-        fill="rgba(107,158,248,0.35)"/>
-    </svg>
-  </div>
-
-  <!-- Чётки -->
-  <div class="ifl ifl-tasbih" style="top:30%;right:7%;animation-delay:0.9s;opacity:0;">
-    <div class="tasbih-bead big"></div>
-    <div class="tasbih-line"></div>
-    <div class="tasbih-bead"></div>
-    <div class="tasbih-line"></div>
-    <div class="tasbih-bead"></div>
-    <div class="tasbih-line"></div>
-    <div class="tasbih-bead big"></div>
-    <div class="tasbih-line"></div>
-    <div class="tasbih-bead"></div>
-    <div class="tasbih-line"></div>
-    <div class="tasbih-bead"></div>
-    <div class="tasbih-line"></div>
-    <div class="tasbih-bead big"></div>
-  </div>
-
-  <div class="ifl ifl-tasbih" style="top:65%;left:5%;animation-delay:1.4s;opacity:0;animation-duration:11s;">
-    <div class="tasbih-bead big"></div>
-    <div class="tasbih-line"></div>
-    <div class="tasbih-bead"></div>
-    <div class="tasbih-line"></div>
-    <div class="tasbih-bead"></div>
-    <div class="tasbih-line"></div>
-    <div class="tasbih-bead big"></div>
-    <div class="tasbih-line"></div>
-    <div class="tasbih-bead"></div>
-    <div class="tasbih-line"></div>
-    <div class="tasbih-bead big"></div>
-  </div>
 
 </div>
 
@@ -2282,25 +2177,11 @@
   }
   window.addEventListener('scroll', updateScrollBar, { passive: true });
 
-  /* ═══ TYPEWRITER НА HERO ═══ */
+  /* ═══ TYPEWRITER НА HERO → простой reveal ═══ */
   (function() {
     const el = document.getElementById('heroSub');
     if (!el) return;
-    const text   = el.dataset.text;
-    const cursor = document.createElement('span');
-    cursor.className = 'tw-cursor';
-    let i = 0;
-    el.textContent = '';
-    el.appendChild(cursor);
-    const timer = setInterval(() => {
-      if (i < text.length) {
-        el.insertBefore(document.createTextNode(text[i]), cursor);
-        i++;
-      } else {
-        clearInterval(timer);
-        setTimeout(() => cursor.remove(), 1800);
-      }
-    }, 32);
+    if (el.dataset.text) el.textContent = el.dataset.text;
   })();
 
   /* ═══ АКТИВНАЯ ССЫЛКА НАВИГАЦИИ ═══ */
@@ -2319,33 +2200,6 @@
     sections.forEach(s => spy.observe(s));
   })();
 
-  /* ═══ 3D ТИЛТ НА КАРТОЧКАХ КУРСОВ ═══ */
-  document.querySelectorAll('.course-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const r  = card.getBoundingClientRect();
-      const x  = e.clientX - r.left - r.width  / 2;
-      const y  = e.clientY - r.top  - r.height / 2;
-      const rx = -(y / r.height * 14).toFixed(2);
-      const ry =  (x / r.width  * 14).toFixed(2);
-      card.style.transform = `perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-8px) scale(1.02)`;
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
-  });
-
-  /* ═══ МАГНИТНЫЕ КНОПКИ ═══ */
-  document.querySelectorAll('.magnetic').forEach(btn => {
-    btn.addEventListener('mousemove', e => {
-      const r  = btn.getBoundingClientRect();
-      const x  = (e.clientX - r.left - r.width  / 2) * 0.28;
-      const y  = (e.clientY - r.top  - r.height / 2) * 0.28;
-      btn.style.transform = `translate(${x}px, ${y}px)`;
-    });
-    btn.addEventListener('mouseleave', () => {
-      btn.style.transform = '';
-    });
-  });
 
   /* Счётчик для 200К */
   function animateCount(el, target, suffix) {

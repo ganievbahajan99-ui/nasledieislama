@@ -914,21 +914,15 @@
        ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ
     ═══════════════════════════════ */
     .a11y-toggle {
-      position: fixed; top: 108px; right: 0; z-index: 1101;
-      background: var(--blue);
-      color: #fff; border: none; cursor: pointer;
-      padding: 9px 11px 9px 13px;
-      border-radius: 10px 0 0 10px;
-      font-size: 11px; font-weight: 800;
-      writing-mode: vertical-rl; text-orientation: mixed;
-      letter-spacing: 0.07em;
-      box-shadow: -3px 3px 16px rgba(30,58,138,0.30);
+      background: none; border: none; cursor: pointer;
+      width: 38px; height: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; color: var(--blue);
       transition: background 0.2s, transform 0.2s;
-      font-family: 'Montserrat', sans-serif;
-      line-height: 1.3;
+      flex-shrink: 0;
     }
-    .a11y-toggle:hover { background: var(--blue2); transform: translateX(-3px); }
-    .a11y-toggle.a11y-on { background: #333; }
+    .a11y-toggle:hover { background: rgba(30,58,138,0.10); transform: scale(1.15); }
+    .a11y-toggle.a11y-on { color: var(--gold2); }
 
     /* Режим слабовидящих */
     body.a11y-on {
@@ -1521,6 +1515,9 @@
     <li><a href="#media">Медиа</a></li>
     <li><a href="#contact" class="nav-cta">Записаться</a></li>
   </ul>
+  <button class="a11y-toggle" id="a11yToggle" onclick="toggleA11y()" aria-label="Версия для слабовидящих" title="Версия для слабовидящих">
+    <i class="fa-solid fa-glasses"></i>
+  </button>
   <button class="dark-btn" id="darkBtn" aria-label="Тёмная тема" onclick="toggleDark()">
     <i class="fa-solid fa-moon" id="darkIcon"></i>
   </button>
@@ -1529,10 +1526,6 @@
   </div>
 </nav>
 
-<!-- Кнопка версии для слабовидящих -->
-<button class="a11y-toggle" id="a11yToggle" onclick="toggleA11y()" aria-label="Версия для слабовидящих">
-  Версия для слабовидящих
-</button>
 
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="home">
